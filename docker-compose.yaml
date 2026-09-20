@@ -1,5 +1,13 @@
 version: "3.3"
 services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - PRODUCT_API_BASE_URL=http://simulado:80
+    depends_on:
+      - simulado
   influxdb:
     image: influxdb:1.8.2
     ports:
